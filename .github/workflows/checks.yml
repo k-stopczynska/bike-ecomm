@@ -14,10 +14,18 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Install dependencies
+      - name: Install pipenv
         run: |
           pip install pipenv
+
+      - name: Install dependencies
+        run: |
           pipenv install --dev
 
+      - name: Activate virtual environment
+        run: |
+          pipenv shell
+
       - name: Test
-        run: python manage.py test
+        run: |
+          python manage.py test
