@@ -15,9 +15,9 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        run:
+        run: |
           pip install pipenv
-          pipenv install -dev
+          pipenv install --dev
 
       - name: Test
         run: python manage.py test
