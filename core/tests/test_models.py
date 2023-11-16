@@ -14,8 +14,8 @@ class ModelTests(TestCase):
 	def test_new_user_email_normalisation(self):
 		sample_emails = [
 			['test1@EXAMPLE.com', 'test1@example.com'],
-			['test2@Example.com', 'Test2@example.com'],
-			['TEST3@EXAMPLE>COM', 'TEST3@example.com'],
+			['test2@Example.com', 'test2@example.com'],
+			['TEST3@EXAMPLE.COM', 'TEST3@example.com'],
 			['test4@example.COM', 'test4@example.com']
 		]
 		for email, expected in sample_emails:
