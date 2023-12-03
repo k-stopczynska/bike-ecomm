@@ -29,4 +29,15 @@ class PublicUserAPITest(TestCase):
         self.assertTrue(user.check_password(payload['password']))
         self.assertNotIn('password', res.data)
 
+    def test_user_with_email_exists_error(self):
+        payload = {
+            'email': 'test@example.com',
+            'password': 'Testtest123',
+            'name': 'Test Name'
+        }
+        create_user(**payload)
+        res = self.client.post(CREATE_USER_URL, payload)
+
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
     
